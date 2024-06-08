@@ -1,0 +1,24 @@
+{
+  "name": "dragon",
+  "version": "1.0.0",
+  "description": "Arium's cross platform HTTP web application framework.",
+  "main": "index.js",
+  "scripts": {
+    "copy:babylonjs": "cp ./node_modules/babylonjs/babylon.js ./node_modules/babylonjs/babylon.max.js ./asset/js/",
+    "watch": "npm run sass -- --watch",
+    "compile": "npm run sass && npm run prefix",
+    "sass": "sass sass/styles.scss asset/css/styles.css --no-source-map --style=compressed",
+    "prefix": "postcss asset/css/styles.css --replace --use autoprefixer -b 'defaults' --no-map",
+    "build_dev": "nodemon -e scss -x \"npm run watch\"",
+    "build": "npm run compile && npm run copy:babylonjs"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "babylonjs": "^7.10.1",
+    "browser-sync": "^3.0.2",
+    "nodemon": "^2.0.14",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.77.4"
+  }
+}
